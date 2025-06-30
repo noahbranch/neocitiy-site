@@ -2,342 +2,356 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>La Croix Soy Boi</title>
-		<style>
-			body {
-			    font-family: sans-serif;
-			}
-		</style>
+		<link rel="stylesheet" href="site.css" />
+		<link rel="icon" href="images/My Computer.ico" type="image/x-icon" />
+		<script src="jquery-3.7.1.min.js"></script>
 	</head>
-	<body>
-		
-        <div id="container">
-            <div id="headerArea">
-                <div id="header"></div>
-                <nav id="navbar">
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Link</a></li>
-                        <li><a href="#">Link</a></li>
-                        <li><a href="#">Link</a></li>
-                        <li><a href="#">Link</a></li>
-                        <li><a href="#">Link</a></li>
-                    </ul>
-                </nav>
-            </div>
+	<body class="xp-home-body">
+		<div class="xp-home-container">
+			<div class="desktop">
+				<div class="desktop-shortcut">
+					<img
+						src="images/My Computer.ico"
+						alt="My Computer Icon"
+						class="desktop-icon"
+						id="my-computer-icon"
+					/>
+					<p>My Computer</p>
+				</div>
+				<div class="desktop-shortcut">
+					<img
+						src="images/Folder Open.ico"
+						alt="File Icon"
+						class="desktop-icon"
+						id="my-computer-icon"
+					/>
+					<p>stuff</p>
+				</div>
+				<div class="desktop-shortcut">
+					<img
+						src="images/internet-explorer.ico"
+						alt="My Computer Icon"
+						class="desktop-icon"
+						id="my-computer-icon"
+						onclick="showCoolSite()"
+					/>
+					<p>fun site</p>
+				</div>
+			</div>
+			<!-- two‐window wrapper -->
+			<div class="xp-windows-wrapper">
+				<!-- main “My Computer” window -->
+				<div class="xp-window main-window" hidden>
+					<div class="xp-window-header">
+						<span class="xp-window-title">
+							<img
+								src="images/internet-explorer.ico"
+								style="height: 12px; margin-right: 5px;"
+							/>
+							cool site
+						</span>
+						<div class="xp-window-buttons">
+							<img
+								src="images/minimize-icon.png"
+								alt="–"
+								class="xp-btn"
+								onclick="hideCoolSite()"
+							/>
+							<img
+								src="images/maximize-icon.png"
+								alt="☐"
+								class="xp-btn"
+								id="maximize-btn"
+							/>
+							<img
+								src="images/close-icon.png"
+								alt="×"
+								class="xp-btn"
+								onclick="hideCoolSite()"
+							/>
+						</div>
+					</div>
+					<div class="xp-window-dropdowns">
+						<div class="xp-window-dropdown">
+							<span class="xp-window-dropdown-title">File</span>
+							<ul class="xp-window-dropdown-menu">
+								<li><a href="#">New</a></li>
+								<li><a href="#">Open</a></li>
+								<li><a href="#">Save</a></li>
+								<li><a href="#">Exit</a></li>
+							</ul>
+						</div>
+						<div class="xp-window-dropdown">
+							<span class="xp-window-dropdown-title">Edit</span>
+							<ul class="xp-window-dropdown-menu">
+								<li><a href="#">Undo</a></li>
+								<li><a href="#">Redo</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="xp-ie-controls">
+						<div class="xp-ie-btn">
+							<img src="images/back.png" alt="Back" />
+							<span>Back</span>
+						</div>
+						<div class="xp-ie-btn">
+							<img src="images/forward.png" alt="Forward" />
+							<span>Forward</span>
+						</div>
+						<div class="xp-ie-btn">
+							<img src="images/ierefresh.png" alt="Refresh" />
+							<span>Refresh</span>
+						</div>
+						<div class="xp-ie-btn">
+							<img src="images/iehome.png" alt="Home" />
+							<span>Home</span>
+						</div>
+					</div>
+					<div class="xp-ie-address-bar">
+						<span>Address</span>
+						<div class="xp-ie-address-wrapper">
+							<img
+								src="images/internet-explorer.ico"
+								alt="Address"
+								class="xp-ie-address-icon"
+							/>
+							<input
+                id="ie-address"
+								type="text"
+								value="https://lacroixsoyboi.nekoweb.org/"
+								class="xp-ie-address-input"
+							/>
+						</div>
+						<button id="ie-address-go" class="xp-ie-go-button">Go</button>
+					</div>
+					<div class="xp-window-body">
+						<div class="content">
+							<div id="ie-left-side-bar">
+								<div class="sidebox">
+									<h3>site navigation</h3>
+									<ul>
+										<li><span class="nav-link" id="home">home</span></li>
+										<li><span class="nav-link" id="projects">projects</span></li>
+									</ul>
+								</div>
+								<div class="sidebox time-box">
+									<h3>Current Time</h3>
+									<p id="current-time">Loading...</p>
+									<p id="current-date">Loading...</p>
+								</div>
+							</div>
 
-            <div id="flex">
-                <aside id="leftSidebar">
-                    <h2>Updates</h2>
-                    <div class="box">
-                    </div>
-                    <h2>Hi there!</h2>
-                    <h3>Other Tools</h3>
-                    <ul>
-                        <li><a href="https://sadgrlonline.github.io/html-cheatsheet/" target="_blank">HTML Cheatsheet</a>
-                        </li><li><a href="/sadgrl/webmastery/webmaster-links.html" target="_blank">Webmaster Links</a></li>
-                        <li><a href="/sadgrl/webmastery/downloads/tiledbgs.html" target="_blank">Tiled BGs</a></li>
-                        <li><a href="/sadgrl/webmastery/downloads/fonts.html" target="_blank">Fonts</a></li>
-                        <li><a href="/sadgrl/projects/ideas/" target="_blank">Site Ideas</a></li>
-                    </ul>
-                </aside>
-                <main>
-                    
+							<div class="ie-main">
+								<div id="home-content">
+									<h1>it's my very cool website</h1>
+									<p>hey what's up i found a thing online about the indie web and thought i'd take a stab at making a website on it! never got to experience the magic of myspace/geocities so figure this is the next best thing! also social media kinda sucks and i don't actually use it for anything fun</p>
+									<br />
+									<p>not exactly sure how much i'm going to mess with this but the fact that it's out here and there's some evidence on the interent that I exist is kinda cool</p>
+									<br />
+									<p>i'll probably add some little easter eggs to mess around with so try clicking around if you want! something might happen or maybe i won't have done anything and nothing will happen. only one way to find out</p>
+								</div>
+								<div id="projects-content" style="display: none;">
+									<h1>stuff i did or am trying to do</h1>
+									<p>old tv alarm clock</p>
+									<p>currently working on finagling a raspberry pi to use an old tv as a display as a basic alarm clock. Eventually the goal is to have the tv auto turn on and then just do normal alarm clock stuff. Also want to add the ability for the clock to use rss feeds to play a podcast or something.</p>
+								</div>
+								<div id="lorem-ipsum-content" style="display: none;">
+									<h1>Lorem Ipsum</h1>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+									<br />
+									<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+									<br />
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+									<br />
+									<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+									<br />
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+									<br />
+									<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+									<br />
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+									<br />
+									<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+									<br />
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+									<br />
+									<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+									<br />
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+									<br />
+									<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+									<br />
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+									<br />
+									<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+									<br />
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+									<br />
+									<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+								</div>
+							</div>
 
-                </main>
-                <aside id="rightSidebar">
-                    <h2>Updates</h2>
-                    <div class="box">
-                        <p>I have recently updated this tool as of August 2022!</p>
-                        <ul style="padding-left:10px;">
-                            <li>Rewrote the JS to generate cleaner code</li>
-                            <li>Rewrote the CSS in a way that hopefully makes much more sense to edit</li>
-                            <li>Added a couple of new features!</li>
-                            <li>Old version is still available <a href="old.html" target="_blank">here</a></li>
-                        </ul>
-                    </div>
-                    <h2>Hi there!</h2>
-                    <h3>Other Tools</h3>
-                    <ul>
-                        <li><a href="https://sadgrlonline.github.io/html-cheatsheet/" target="_blank">HTML Cheatsheet</a>
-                        </li><li><a href="/sadgrl/webmastery/webmaster-links.html" target="_blank">Webmaster Links</a></li>
-                        <li><a href="/sadgrl/webmastery/downloads/tiledbgs.html" target="_blank">Tiled BGs</a></li>
-                        <li><a href="/sadgrl/webmastery/downloads/fonts.html" target="_blank">Fonts</a></li>
-                        <li><a href="/sadgrl/projects/ideas/" target="_blank">Site Ideas</a></li>
+							<div id="ie-right-side-bar">
+								<div class="sidebox">
+									<h3>links</h3>
+									<ul>
+										<li><a href="https://letterboxd.com/nbranch/" target="_blank">letterboxd</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /.xp-windows-wrapper -->
 
-                    </ul>
-                </aside>
-            </div>
-            <footer id="footer">CC0 Public Domain, 2022</footer>
-        </div>
-        <!-- THIS IS THE CSS !-->
-        <style>
-            /* user styles */
+			<!-- bottom taskbar -->
+			<div class="xp-taskbar">
+				<div class="start-button">
+					<img src="images/windows-logo.png" alt="Start" />
+					<span>start</span>
+				</div>
+				<div class="window-taskbar-item" id="home-taskbar-item">
+					<img src="images/My Computer.ico" alt="My Computer" />
+					<span class="tray-text">My Computer</span>
+				</div>
+				<!-- you can drop in tray icons here later -->
+			</div>
+		</div>
+		<script>
+			$(document).ready(function() {
+			  // Initialize window dragging functionality using jQuery
+			  $('.xp-window').each(function() {
+			    const $win = $(this);
+			    const $header = $win.find('.xp-window-header');
+			    let offsetX, offsetY;
 
-            /* styles are what change the color and sizes of stuff on your site. */
+			    $header.on('mousedown', function(e) {
+			      // Use position() instead of offset() for relative positioning
+			      const pos = $win.position();
+			      offsetX = e.clientX - pos.left;
+			      offsetY = e.clientY - pos.top;
 
-            /* these are variables that are being used in the code
-    these tended to confuse some people, so I only kept 
-    the images as variables */
+			      function onMouseMove(e) {
+			        $win.css({
+			          left: (e.clientX - offsetX) + 'px',
+			          top: (e.clientY - offsetY) + 'px'
+			        });
+			      }
 
-            :root {
-                --header-image: url('https://sadhost.neocities.org/images/layouts/wp.jpeg');
-                --body-bg-image: url('https://lacroixsoyboi.nekoweb.org/arcadeCarpet.png');
+			      // listen for movement and stop on mouseup
+			      $(document).on('mousemove', onMouseMove);
+			      $(document).one('mouseup', function() {
+			        $(document).off('mousemove', onMouseMove);
+			      });
+			    });
+			  });
 
-                /* colors */
-                --content: #43256E;
-            }
+			  // Update onclick handlers to use jQuery event handlers instead
+			  $('#home-taskbar-item').on('click', showCoolSite);
+			  $('#nav-taskbar-item').on('click', showNavWindow);
+			  $('#maximize-btn').on('click', maximizeIEWindow);
 
-            /* if you have the URL of a font, you can set it below */
-            /* feel free to delete this if it's not your vibe */
+			  $("#home").on('click', function() {
+			    $('#home-content').show();
+			    $('#projects-content').hide();
+			    $('#lorem-ipsum-content').hide();
+          setAddress();
+			  });
 
-            /* this seems like a lot for just one font and I would have to agree 
-    but I wanted to include an example of how to include a custom font.
-    If you download a font file you can upload it onto your Neocities
-    and then link it! Many fonts have separate files for each style
-    (bold, italic, etc. T_T) which is why there are so many!
-    
-    */
+			  $("#projects").on('click', function() {
+			    $('#home-content').hide();
+			    $('#lorem-ipsum-content').hide();
+			    $('#projects-content').show();
+          setAddress('projects');
+			  });
+			  
+			  $("#ie-address-go").on('click', checkAddress);
 
-            @font-face {
-                font-family: Nunito;
-                src: url('https://sadhost.neocities.org/fonts/Nunito-Regular.ttf');
-            }
+			  // Update time every second
+			  updateTime();
+			  setInterval(updateTime, 1000);
+			});
 
-            @font-face {
-                font-family: Nunito;
-                src: url('https://sadhost.neocities.org/fonts/Nunito-Bold.ttf');
-                font-weight: bold;
-            }
+			function updateTime() {
+			  const now = new Date();
+			  const timeString = now.toLocaleTimeString();
+			  const dateString = now.toLocaleDateString();
 
-            @font-face {
-                font-family: Nunito;
-                src: url('https://sadhost.neocities.org/fonts/Nunito-Italic.ttf');
-                font-style: italic;
-            }
+			  $('#current-time').text(timeString);
+			  $('#current-date').text(dateString);
+			}
 
-            @font-face {
-                font-family: Nunito;
-                src: url('https://sadhost.neocities.org/fonts/Nunito-BoldItalic.ttf');
-                font-style: italic;
-                font-weight: bold;
-            }
+      function setAddress (page) {
+        if (!page) {
+          page = '';
+        }
 
-            body {
-                font-family: 'Nunito', sans-serif;
-                margin: 0;
-                background-color: #08031A;
-                /* you can delete the line below if you'd prefer to not use an image */
-                background-size: 400px;
-                color: #fceaff;
-                background-image: var(--body-bg-image);
-            }
+        $('#ie-address').val('https://lacroixsoyboi.nekoweb.org/' + page);
+      }
 
-            * {
-                box-sizing: border-box;
-            }
+			hideNavWindow = () => {
+			  $('.nav-window').hide();
+			  $("#nav-taskbar-item").addClass("minimized");
+			};
 
-            /* below this line is CSS for the layout */
+			showNavWindow = () => {
+			  $('.nav-window').show();
+			  $("#nav-taskbar-item").removeClass("minimized");
+			};
 
-            /* this is a CSS comment
-    to uncomment a line of CSS, remove the * and the /
-    before and after the text */
+			hideCoolSite = () => {
+			  $('.main-window').hide();
+			  $("#home-taskbar-item").addClass("minimized");
+			};
 
+			showCoolSite = () => {
+			  $('.main-window').show();
+			  $("#home-taskbar-item").removeClass("minimized");
+			};
+			maximizeIEWindow = () => {
+			  const $mainWindow = $('.main-window');
+			  const $desktop = $('.desktop');
 
-            /* the "container" is what wraps your entire website */
-            /* if you want something (like the header) to be Wider than
-    the other elements, you will need to move that div outside
-    of the container */
-            #container {
-                max-width: 900px;
-                /* this is the width of your layout! */
-                /* if you change the above value, scroll to the bottom
-      and change the media query according to the comment! */
-                margin: 0 auto;
-                /* this centers the entire page */
-            }
+			  if ($mainWindow.hasClass('maximized')) {
+			    // Restore to normal size
+			    $desktop.show();
+			    $mainWindow.removeClass('maximized').css({
+			      width: 'calc(100% - 400px)',
+			      height: 'auto',
+			      left: '320px',
+			      top: '50px',
+			      right: 'auto',
+			      bottom: 'auto'
+			    });
+			    $('#maximize-btn').attr('alt', '☐');
+			  } else {
+			    // Maximize to full screen (except taskbar)
+			    $desktop.hide();
+			    $mainWindow.addClass('maximized').css({
+			      width: '100%',
+			      height: 'calc(100vh - 30px)', // Full height minus taskbar height
+			      left: '0',
+			      top: '0',
+			      right: '0',
+			      bottom: '30px' // Leave space for taskbar
+			    });
+			    $('#maximize-btn').attr('alt', '❏');
+			  }
+			};
+			
+			checkAddress = () => {
+				var addressValue = $('#ie-address').val();
+				
+				if (addressValue == 'https://lacroixsoyboi.nekoweb.org/loremipsum') {
+					$('#lorem-ipsum-content').show();
+				    $('#home-content').hide();
+				    $('#projects-content').hide();
+				}
+			};
 
-            /* the area below is for all links on your page
-    EXCEPT for the navigation */
-            #container a {
-                color: #ED64F5;
-                font-weight: bold;
-                /* if you want to remove the underline
-      you can add a line below here that says:
-      text-decoration:none; */
-            }
-
-            #header {
-                width: 100%;
-                background-color: #5e4e8c;
-                /* header color here! */
-                height: 150px;
-                /* this is only for a background image! */
-                /* if you want to put images IN the header, 
-      you can add them directly to the <div id="header"></div> element! */
-                background-image: var(--header-image);
-                background-size: 100%;
-            }
-
-            /* navigation section!! */
-            #navbar {
-                height: 40px;
-                background-color: #13092D;
-                /* navbar color */
-                width: 100%;
-            }
-
-            #navbar ul {
-                display: flex;
-                padding: 0;
-                margin: 0;
-                list-style-type: none;
-                justify-content: space-evenly;
-            }
-
-            #navbar li {
-                padding-top: 10px;
-            }
-
-            /* navigation links*/
-            #navbar li a {
-                color: #ED64F5;
-                /* navbar text color */
-                font-weight: 800;
-                text-decoration: none;
-                /* this removes the underline */
-            }
-
-            /* navigation link when a link is hovered over */
-            #navbar li a:hover {
-                color: #a49cba;
-                text-decoration: underline;
-            }
-
-            #flex {
-                display: flex;
-            }
-
-            /* this colors BOTH sidebars
-    if you want to style them separately,
-    create styles for #leftSidebar and #rightSidebar */
-            aside {
-                background-color: #241445;
-                width: 200px;
-                padding: 20px;
-                font-size: smaller;
-                /* this makes the sidebar text slightly smaller */
-            }
-
-
-            /* this is the color of the main content area,
-    between the sidebars! */
-            main {
-                background-color: #43256E;
-                flex: 1;
-                padding: 20px;
-                order: 2;
-            }
-
-            /* what's this "order" stuff about??
-    allow me to explain!
-    if you're using both sidebars, the "order" value
-    tells the CSS the order in which to display them.
-    left sidebar is 1, content is 2, and right sidebar is 3! */
-
-            */ #leftSidebar {
-                order: 1;
-            }
-
-            #rightSidebar {
-                order: 3;
-            }
-
-            footer {
-                background-color: #13092D;
-                /* background color for footer */
-                width: 100%;
-                height: 40px;
-                padding: 10px;
-                text-align: center;
-                /* this centers the footer text */
-            }
-
-            h1,
-            h2,
-            h3 {
-                color: #ED64F5;
-            }
-
-            h1 {
-                font-size: 25px;
-            }
-
-            strong {
-                /* this styles bold text */
-                color: #ED64F5;
-            }
-
-            /* this is just a cool box, it's the darker colored one */
-            .box {
-                background-color: #13092D;
-                border: 1px solid #ED64F5;
-                padding: 10px;
-            }
-
-            /* CSS for extras */
-
-            #topBar {
-                width: 100%;
-                height: 30px;
-                padding: 10px;
-                font-size: smaller;
-                background-color: #13092D;
-            }
-
-
-            /* BELOW THIS POINT IS MEDIA QUERY */
-
-            /* so you wanna change the width of your page? 
-    by default, the container width is 900px.
-    in order to keep things responsive, take your new height,
-    and then subtrack it by 100. use this new number as the 
-    "max-width" value below
-    */
-
-            @media only screen and (max-width: 800px) {
-                #flex {
-                    flex-wrap: wrap;
-                }
-
-                aside {
-                    width: 100%;
-                }
-
-                /* the order of the items is adjusted here for responsiveness!
-      since the sidebars would be too small on a mobile device.
-      feel free to play around with the order!
-      */
-                main {
-                    order: 1;
-                }
-
-                #leftSidebar {
-                    order: 2;
-                }
-
-                #rightSidebar {
-                    order: 3;
-                }
-
-                #navbar ul {
-                    flex-wrap: wrap;
-                }
-            }
-        </style>
-
-    
+			
+		</script>
 	</body>
 </html>

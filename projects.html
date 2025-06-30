@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>La Croix Soy Boi</title>
+  <link rel="stylesheet" href="site.css">
+  <link rel="icon" href="images/High-Res_XP_Icons/My Computer.ico" type="image/x-icon">
+  <script src="jquery-3.7.1.min.js"></script>
+</head>
+<body class="xp-home-body">
+<div class="xp-home-container">
+
+    <!-- two‐window wrapper -->
+    <div class="xp-windows-wrapper">
+
+      <!-- nav window -->
+      <div class="xp-window nav-window">
+        <div class="xp-window-header">
+          <span class="xp-window-title">Navigation</span>
+          <div class="xp-window-buttons">
+            <img src="images/minimize-icon.png" alt="–" class="xp-btn" onclick="hideNavWindow()">
+            <img src="images/maximize-icon.png" alt="☐" class="xp-btn" onclick="hideNavWindow()">
+            <img src="images/close-icon.png"    alt="×" class="xp-btn" onclick="hideNavWindow()">
+          </div>
+        </div>
+        <div class="xp-window-body">
+          <ul class="nav-list">
+            <li><a href="home.html">home</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- main “My Computer” window -->
+      <div class="xp-window main-window">
+        <div class="xp-window-header">
+          <span class="xp-window-title">My projects</span>
+          <div class="xp-window-buttons">
+            <img src="images/minimize-icon.png" alt="–" class="xp-btn" onclick="hideMyComputerWindow()">
+            <img src="images/maximize-icon.png" alt="☐" class="xp-btn" onclick="hideMyComputerWindow()">
+            <img src="images/close-icon.png"    alt="×" class="xp-btn" onclick="hideMyComputerWindow()">
+          </div>
+        </div>
+        <div class="xp-window-body">
+            <h1>Welcome to the internet</h1>
+            <p>Gonna add some extra text soon</p>
+        </div>
+      </div>
+
+    </div><!-- /.xp-windows-wrapper -->
+
+    <!-- bottom taskbar -->
+    <div class="xp-taskbar">
+      <div class="start-button">
+        <img src="images/windows-logo.png" alt="Start">
+        <span>start</span>
+      </div>
+      <div class="window-taskbar-item" id="home-taskbar-item">
+        <img src="images/Folder Open.ico" alt="Start">
+        <span class="tray-text">My Projects</span>
+      </div>
+      <div class="window-taskbar-item" id="nav-taskbar-item">
+        <img src="images/Folder Open.ico" alt="Start">
+        <span class="tray-text">Navigation</span>
+      </div>
+      <!-- you can drop in tray icons here later -->
+    </div>
+  </div>
+  <script>
+  $(document).ready(function() {
+    // Initialize window dragging functionality using jQuery
+    $('.xp-window').each(function() {
+      const $win = $(this);
+      const $header = $win.find('.xp-window-header');
+      let offsetX, offsetY;
+
+      $header.on('mousedown', function(e) {
+        // calculate where inside the window we clicked
+        offsetX = e.clientX - $win.offset().left;
+        offsetY = e.clientY - $win.offset().top;
+
+        function onMouseMove(e) {
+          $win.css({
+            left: (e.clientX - offsetX) + 'px',
+            top: (e.clientY - offsetY) + 'px'
+          });
+        }
+
+        // listen for movement and stop on mouseup
+        $(document).on('mousemove', onMouseMove);
+        $(document).one('mouseup', function() {
+          $(document).off('mousemove', onMouseMove);
+        });
+      });
+    });
+
+    // Update onclick handlers to use jQuery event handlers instead
+    $('#home-taskbar-item').on('click', showMyComputerWindow);
+    $('#nav-taskbar-item').on('click', showNavWindow);
+  });
+
+  hideNavWindow = () => {
+    $('.nav-window').hide();
+    $("#nav-taskbar-item").addClass("minimized");
+  };
+
+  showNavWindow = () => {
+    $('.nav-window').show();
+    $("#nav-taskbar-item").removeClass("minimized");
+  };
+
+  hideMyComputerWindow = () => {
+    $('.main-window').hide();
+    $("#home-taskbar-item").addClass("minimized");
+  };
+
+  showMyComputerWindow = () => {
+    $('.main-window').show();
+    $("#home-taskbar-item").removeClass("minimized");
+  };
+</script>
+
+</body>
+</html>

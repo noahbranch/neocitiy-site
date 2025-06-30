@@ -1,0 +1,721 @@
+/* reset a few things */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  font-family: Tahoma, Arial, sans-serif;
+  color: #fff;
+}
+
+/* full‐page XP‐style gradient wallpaper */
+body {
+  /* dark blue at top → light blue in middle → dark blue at bottom */
+  background: linear-gradient(
+    to bottom,
+    #0055e3 0%,
+    #5b8de0 50%,
+    #0055e3 100%
+  );
+}
+
+/* container for everything */
+.xp-login-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+/* top bar */
+.xp-bar {
+  background: rgba(0, 0, 128, 0.8);
+  padding: 8px 16px;
+  font-size: 12px;
+  text-align: right;
+}
+.xp-bar-text {
+  color: #fff;
+}
+
+/* center panel as two columns */
+.xp-login-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto; /* let content size itself */
+}
+
+/* left half */
+.logo-section {
+  flex: 1;
+  text-align: right;
+    padding-right: 40px;
+}
+
+/* right half, with vertical divider */
+.login-section {
+  flex: 1;
+  text-align: left;
+  border-left: 1px solid rgba(255,255,255,0.8);
+  padding-left: 40px;
+}
+
+/* reuse your old logo styling */
+.logo img {
+  width: 200px;
+  margin-bottom: 16px;
+}
+
+/* reuse your old prompt styling */
+.prompt {
+  font-size: 18px;
+  text-shadow: 1px 1px 2px #000;
+  margin-top: 8px;
+}
+
+/* user card */
+.user-card {
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.4);
+  padding: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+.user-card:hover,
+.user-card:focus {
+  background: rgba(255,255,255,0.3);
+  border-color: rgba(255,255,255,0.6);
+}
+
+/* user icon */
+.user-card img {
+  width: 64px;
+  height: 64px;
+  border-radius: 4px;
+  display: block;
+  margin: 0 auto 8px;
+}
+
+/* username label */
+.username {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+/* log on button */
+#login-button {
+  font-size: 14px;
+  padding: 4px 12px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background: linear-gradient(to bottom, #f1f1f1, #ddd);
+  cursor: pointer;
+}
+#login-button:hover {
+  background: linear-gradient(to bottom, #fff, #eee);
+}
+
+/* footer area */
+.xp-footer {
+  padding: 16px;
+  font-size: 12px;
+  color: #fff;
+  text-shadow: 1px 1px 2px #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* shutdown link */
+.shutdown {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.shutdown-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+}
+
+/* hint text on right */
+.hint {
+  max-width: 300px;
+  text-align: right;
+  line-height: 1.2;
+}
+/* ---------------------------------------- */
+/* Home page XP‐style window + taskbar      */
+/* ---------------------------------------- */
+
+.desktop {
+    padding: 0 0; /* leave room for taskbar */
+    position: static;
+}
+
+.desktop-shortcut {
+  display: inline-block;
+  text-align: center;
+  width: 80px;
+  margin: 10px;
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.desktop img{
+  height: 36px;
+}
+
+.xp-home-body {
+    background-image: url('images/bliss.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.xp-home-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* every XP window becomes absolute */
+.xp-window {
+  position: absolute;
+  user-select: none;       /* so text won’t get selected while dragging */
+  cursor: default;
+  width: 70%;
+  max-width: 800px;
+  border: 2px solid #fff;
+  box-shadow: 0 0 12px rgba(0,0,0,0.6);
+  background: #cfcfcf;
+  font-family: Tahoma, Arial, sans-serif;
+  border-width: medium;
+  border-color: #0055e3;
+  border-radius: 4px;
+}
+
+/* initial positions—you can tweak these to taste */
+.nav-window {
+  top: 30px;
+  left: 80px;
+  width: 200px;
+}
+
+.main-window {
+  top: 10px;
+  left: 200px;
+  max-width: 1200px;
+  width: calc(100% - 400px);
+}
+
+.main-window.maximized {
+  z-index: 1000;
+  max-width: none;
+  border-radius: 0;
+}
+
+/* hint that header is the “grab” handle */
+.xp-window-header {
+  cursor: move;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to bottom, #0055e3, #1a53b0);
+  color: #fff;
+  padding: 4px 8px;
+  user-select: none;
+}
+
+/* window title text */
+.xp-window-title {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* control buttons */
+.xp-window-buttons {
+  display: flex;
+  gap: 4px;
+}
+.xp-btn {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  /* assume you’ll supply PNGs with transparent bg */
+}
+
+/* window content area */
+.xp-window-body {
+  background-image: url("images/space-bg.png");
+  background-repeat: repeat;
+    background-position: center;
+  color: #fff;
+  padding: 16px;
+  min-height: 200px;
+  height: calc(100% - 125px); /* leave room for header */
+  overflow-y: scroll;
+  line-height: 1.4;
+}
+
+/* XP Window Dropdown Menu Styles */
+.xp-window-dropdowns {
+  background: #efebdb;
+  border-bottom: 1px solid #d4d0c8;
+  display: flex;
+  padding: 2px;
+  font-size: 11px;
+}
+
+.xp-window-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.xp-window-dropdown-title {
+  padding: 4px 8px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  user-select: none;
+  color: #000;
+}
+
+.xp-window-dropdown-title:hover {
+  background: #e0e0e0;
+  border-color: #c0c0c0;
+}
+
+.xp-window-dropdown:hover .xp-window-dropdown-title {
+  background: #316ac5;
+  color: white;
+  border-color: #1040a0;
+}
+
+.xp-window-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #efebdb;
+  border: 2px outset #d4d0c8;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  min-width: 100px;
+  z-index: 1000;
+  list-style: none;
+  padding: 2px 0;
+  margin: 0;
+  display: none;
+}
+
+.xp-window-dropdown:hover .xp-window-dropdown-menu {
+  display: block;
+}
+
+.xp-window-dropdown-menu li {
+  margin: 0;
+  padding: 0;
+}
+
+.xp-window-dropdown-menu a {
+  display: block;
+  padding: 4px 16px;
+  text-decoration: none;
+  color: #000;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.xp-window-dropdown-menu a:hover {
+  background: #316ac5;
+  color: white;
+}
+
+/* bottom taskbar */
+.xp-taskbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background: linear-gradient(to bottom, #1a53b0, #0055e3);
+  display: flex;
+  align-items: stretch;
+  padding: 0 0 0 0;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+/* Start button placeholder */
+.start-button img {
+  height: 32px;
+  cursor: pointer;
+}
+
+.start-button {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;  
+  background: linear-gradient(to bottom, #78ae43, #608d34);
+  border-radius:0 4px 4px 0;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.start-button:hover {
+  background: #6f9c3b;
+}
+
+.window-taskbar-item {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  color: #fff;
+  cursor: pointer;
+  background-color: #0055e3;
+  border-radius: 4px;
+  margin:4px 8px;
+  font-size: 12px;
+  width: 160px;
+}
+
+.window-taskbar-item img {
+  height: 16px;
+  padding: 0 4px;
+  cursor: pointer;
+}
+
+.window-taskbar-item:hover {
+  background-color: #1a53b0;
+}
+
+/* Minimized taskbar item styling */
+.window-taskbar-item.minimized {
+  background-color: #1a53b0 !important;
+}
+
+.window-taskbar-item.minimized:hover {
+  background-color: #6b9de0 !important;
+}
+
+/* make the wrapper a positioned “desktop” */
+.xp-windows-wrapper {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 40px); /* leave room for taskbar */
+  overflow: visible;
+}
+
+
+
+/* navigation list styling */
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.nav-list li {
+  margin-bottom: 8px;
+}
+.nav-list a {
+  text-decoration: none;
+  color: #000;
+  font-family: Tahoma, Arial, sans-serif;
+  display: block;
+  padding: 4px 2px;
+  border-radius: 2px;
+}
+.nav-list a:hover {
+  background: #e0e0e0;
+}
+.xp-ie-controls {
+  display: flex;
+  align-items: center;
+  color: #000;
+  font-family: Tahoma, Arial, sans-serif;
+  font-size: 11px;
+  padding: 4px;
+  background: #efebdb;
+  border-bottom: 1px solid #d4d0c8;
+  gap: 2px;
+}
+
+.xp-ie-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 6px;
+  background: #efebdb;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  cursor: pointer;
+  min-width: 40px;
+  min-height: 36px;
+  font-size: 10px;
+  color: #000;
+  text-decoration: none;
+  user-select: none;
+  transition: all 0.1s ease;
+}
+
+.xp-ie-btn:hover {
+  background: #e8e8e8;
+  border-color: #c0c0c0;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
+}
+
+.xp-ie-btn:active {
+  background: #d0d0d0;
+  border: 1px inset #c0c0c0;
+  box-shadow: inset 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.xp-ie-btn img {
+  width: 16px;
+  height: 16px;
+  margin-bottom: 2px;
+  pointer-events: none;
+}
+
+.xp-ie-btn span {
+  white-space: nowrap;
+  font-size: 10px;
+  line-height: 1;
+}
+
+/* XP Internet Explorer Address Bar Styles */
+.xp-ie-address-bar {
+  display: flex;
+  align-items: center;
+  padding: 4px 6px;
+  background: #efebdb;
+  border-bottom: 1px solid #d4d0c8;
+  gap: 4px;
+  color: #000;
+  font-family: Tahoma, Arial, sans-serif;
+  font-size: 11px;
+}
+
+.xp-ie-address-wrapper {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  border: 2px inset #d4d0c8;
+  background: white;
+}
+
+.xp-ie-address-icon {
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+  margin-right: 4px;
+  flex-shrink: 0;
+}
+
+.xp-ie-address-input {
+  flex: 1;
+  padding: 3px 6px 3px 0;
+  border: none;
+  background: transparent;
+  font-family: Tahoma, Arial, sans-serif;
+  font-size: 11px;
+  color: #000;
+  outline: none;
+  min-height: 20px;
+}
+
+.xp-ie-address-wrapper:focus-within {
+  border: 2px inset #316ac5;
+  box-shadow: inset 0 0 2px rgba(49, 106, 197, 0.3);
+}
+
+.xp-ie-go-button {
+  padding: 3px 12px;
+  background: linear-gradient(to bottom, #f8f8f8, #e0e0e0);
+  border: 2px outset #d4d0c8;
+  font-family: Tahoma, Arial, sans-serif;
+  font-size: 11px;
+  color: #000;
+  cursor: pointer;
+  min-height: 26px;
+  user-select: none;
+}
+
+.xp-ie-go-button:hover {
+  background: linear-gradient(to bottom, #fff, #e8e8e8);
+}
+
+.xp-ie-go-button:active {
+  background: linear-gradient(to bottom, #d0d0d0, #f0f0f0);
+  border: 2px inset #d4d0c8;
+}
+
+/* Internet Explorer Window Body Layout */
+.content {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  min-height: 400px;
+}
+
+#ie-left-side-bar {
+  width: 200px;
+  padding: 8px;
+  flex-shrink: 0;
+  color: #000;
+}
+
+.ie-main {
+  flex: 1;
+  padding: 16px;
+  max-height: 600px;
+  max-width: 800px;
+  overflow-y: auto;
+}
+
+#ie-right-side-bar {
+  width: 200px;
+  padding: 8px;
+  flex-shrink: 0;
+  color: #000;
+}
+
+/* Sidebar Boxes */
+.sidebox {
+  background: rgba(255,255,255,0.8);
+  border: 2px inset #d4d0c8;
+  margin-bottom: 12px;
+  padding: 8px;
+  font-size: 11px;
+  border-radius: 4px;
+}
+
+.sidebox h3 {
+  background: linear-gradient(to bottom, #0055e3, #1a53b0);
+  color: white;
+  margin: -8px -8px 8px -8px;
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.sidebox p {
+  margin: 4px 0;
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+.sidebox ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebox li {
+  margin: 2px 0;
+}
+
+.sidebox a {
+  color: #0000ee;
+  text-decoration: underline;
+  font-size: 11px;
+}
+
+.sidebox a:hover {
+  color: #0000aa;
+}
+
+.sidebox a:visited {
+  color: #551a8b;
+}
+
+/* Special styling for different box types */
+.status-box {
+  background: #ffffcc;
+}
+
+.time-box {
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+}
+
+.chat-box {
+  background: #f0fff0;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.chat-message {
+  margin: 2px 0;
+  padding: 2px 4px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  font-size: 10px;
+}
+
+.chat-input {
+  width: 100%;
+  padding: 2px;
+  border: 1px inset #d4d0c8;
+  font-size: 10px;
+  margin-top: 4px;
+}
+
+.sidebar-button {
+  width: 100%;
+  padding: 4px 8px;
+  margin: 2px 0;
+  background: linear-gradient(to bottom, #f8f8f8, #e0e0e0);
+  border: 2px outset #d4d0c8;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.sidebar-button:hover {
+  background: linear-gradient(to bottom, #fff, #e8e8e8);
+}
+
+.sidebar-button:active {
+  background: linear-gradient(to bottom, #d0d0d0, #f0f0f0);
+  border: 2px inset #d4d0c8;
+}
+
+.ie-main {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 4px;
+  padding: 16px;
+  color: #000;
+  font-family: Tahoma, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.ie-main h1 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #fff;
+  padding: 5px 10px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  background: linear-gradient(to bottom, #0055e3, #1a53b0);
+  border-radius: 4px;
+  text-align: center;
+}
+
+.nav-link {
+  color: #0055e3;
+  text-decoration: underline;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  color: #003d99;
+}

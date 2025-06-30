@@ -1,18 +1,62 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>La Croix Soy Boi</title>
-		<style>
-			body {
-			    font-family: sans-serif;
-			}
-		</style>
-	</head>
-    <body>
-        <h1>lacroixsoyboi's page</h1>
-        <a href="/home.html">Enter</a>
-    </body>
+<head>
+  <meta charset="UTF-8">
+  <title>La Croix Soy Boi</title>
+  <link rel="stylesheet" href="site.css">
+  <link rel="icon" href="images/High-Res_XP_Icons/My Computer.ico" type="image/x-icon">
+</head>
+<body>
+  <div class="xp-login-container">
+    <!-- top bar -->
+    <div class="xp-bar">
+      <span class="xp-bar-text">LaCroixSoyBoi</span>
+    </div>
+
+      <!-- central panel -->
+  <div class="xp-login-panel">
+    <!-- left side: logo + prompt -->
+    <div class="logo-section">
+      <div class="logo">
+        <img src="images/windows-xp-logo.png" alt="Windows XP Logo">
+      </div>
+      <div class="prompt">To begin, click your user name</div>
+    </div>
+
+    <!-- right side: user card -->
+    <div class="login-section">
+      <div class="user-card" tabindex="0">
+        <img src="images/user-icon.jpg" alt="User">
+        <div class="username">usre</div>
+        <button id="login-button">Enter</button>
+      </div>
+    </div>
+  </div>
+
+
+    <!-- footer -->
+    <div class="xp-footer">
+      <div class="shutdown">
+        <img src="images/shutdown-icon.png" alt="" class="shutdown-icon">
+        <span>Turn off computer</span>
+      </div>
+      <div class="hint">
+        After you log on, you can add or change accounts.<br>
+        Just go to Control Panel and click User Accounts.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('login-button').addEventListener('click', function() {
+      window.location.href = 'home.html';
+    });
+    // Optional: allow pressing Enter when focused
+    document.querySelector('.user-card').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        window.location.href = 'home.html';
+      }
+    });
+  </script>
+</body>
 </html>
