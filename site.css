@@ -207,6 +207,13 @@ body {
   width: 200px;
 }
 
+.file-explorer-window {
+  top: 30px;
+  left: 300px;
+  width: 200px;
+}
+
+
 .main-window {
   top: 10px;
   left: 200px;
@@ -244,11 +251,36 @@ body {
   gap: 4px;
 }
 .xp-btn {
-  width: 16px;
-  height: 16px;
-  cursor: pointer;
-  /* assume you’ll supply PNGs with transparent bg */
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  border-color: #fff;
+  border-style: solid;
+  border-radius: 2px;
+  border-width: 1px;
+  font-weight: bold;
+  font-size: 12px;
 }
+
+.xp-btn-active:hover {
+  background: linear-gradient(-45deg, #1a53b0, #6b9de0);
+}
+
+.xp-btn-close {
+  background: linear-gradient(-45deg, #e74c3c, #ff6b6b);
+  cursor: pointer;
+}
+
+.xp-btn-active {
+  background: linear-gradient(-45deg, #0055e3, #89b6ff);
+  cursor: pointer;
+}
+
+.xp-btn-disabled {
+  background: linear-gradient(-45deg, #7d7d7d, #a6a6a6);
+  cursor: not-allowed;
+}
+
 
 /* window content area */
 .xp-window-body {
@@ -259,7 +291,6 @@ body {
   padding: 16px;
   min-height: 200px;
   height: calc(100% - 125px); /* leave room for header */
-  overflow-y: scroll;
   line-height: 1.4;
 }
 
@@ -573,10 +604,20 @@ body {
 
 .ie-main {
   flex: 1;
-  padding: 16px;
-  max-height: 600px;
+  padding: 8px;
+  max-height: 400px;
   max-width: 800px;
   overflow-y: auto;
+  color: #000;
+  font-family: Tahoma, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.ie-main-box {
+	padding: 16px;
+	background: rgba(255, 255, 255, 0.8);
+	border-radius: 4px;
 }
 
 #ie-right-side-bar {
@@ -686,16 +727,6 @@ body {
 .sidebar-button:active {
   background: linear-gradient(to bottom, #d0d0d0, #f0f0f0);
   border: 2px inset #d4d0c8;
-}
-
-.ie-main {
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 4px;
-  padding: 16px;
-  color: #000;
-  font-family: Tahoma, Arial, sans-serif;
-  font-size: 12px;
-  line-height: 1.4;
 }
 
 .ie-main h1 {

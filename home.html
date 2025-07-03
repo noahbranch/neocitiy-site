@@ -1,357 +1,352 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<title>La Croix Soy Boi</title>
-		<link rel="stylesheet" href="site.css" />
-		<link rel="icon" href="images/My Computer.ico" type="image/x-icon" />
-		<script src="jquery-3.7.1.min.js"></script>
-	</head>
-	<body class="xp-home-body">
-		<div class="xp-home-container">
-			<div class="desktop">
-				<div class="desktop-shortcut">
-					<img
-						src="images/My Computer.ico"
-						alt="My Computer Icon"
-						class="desktop-icon"
-						id="my-computer-icon"
-					/>
-					<p>My Computer</p>
-				</div>
-				<div class="desktop-shortcut">
-					<img
-						src="images/Folder Open.ico"
-						alt="File Icon"
-						class="desktop-icon"
-						id="my-computer-icon"
-					/>
-					<p>stuff</p>
-				</div>
-				<div class="desktop-shortcut">
-					<img
-						src="images/internet-explorer.ico"
-						alt="My Computer Icon"
-						class="desktop-icon"
-						id="my-computer-icon"
-						onclick="showCoolSite()"
-					/>
-					<p>fun site</p>
-				</div>
+
+<head>
+	<meta charset="UTF-8" />
+	<title>LaCroixSoyBoi</title>
+	<link rel="stylesheet" href="site.css" />
+	<link rel="icon" href="images/My Computer.ico" type="image/x-icon" />
+	<script src="jquery-3.7.1.min.js"></script>
+</head>
+
+<body class="xp-home-body">
+	<div class="xp-home-container">
+		<div class="desktop">
+			<div class="desktop-shortcut">
+				<img src="images/My Computer.ico" alt="My Computer Icon" class="desktop-icon" id="my-computer-icon" />
+				<p>My Computer</p>
 			</div>
-			<!-- two‐window wrapper -->
-			<div class="xp-windows-wrapper">
-				<!-- main “My Computer” window -->
-				<div class="xp-window main-window" hidden>
-					<div class="xp-window-header">
-						<span class="xp-window-title">
-							<img
-								src="images/internet-explorer.ico"
-								style="height: 12px; margin-right: 5px;"
-							/>
-							cool site
-						</span>
-						<div class="xp-window-buttons">
-							<img
-								src="images/minimize-icon.png"
-								alt="–"
-								class="xp-btn"
-								onclick="hideCoolSite()"
-							/>
-							<img
-								src="images/maximize-icon.png"
-								alt="☐"
-								class="xp-btn"
-								id="maximize-btn"
-							/>
-							<img
-								src="images/close-icon.png"
-								alt="×"
-								class="xp-btn"
-								onclick="hideCoolSite()"
-							/>
-						</div>
-					</div>
-					<div class="xp-window-dropdowns">
-						<div class="xp-window-dropdown">
-							<span class="xp-window-dropdown-title">File</span>
-							<ul class="xp-window-dropdown-menu">
-								<li><a href="#">New</a></li>
-								<li><a href="#">Open</a></li>
-								<li><a href="#">Save</a></li>
-								<li><a href="#">Exit</a></li>
-							</ul>
-						</div>
-						<div class="xp-window-dropdown">
-							<span class="xp-window-dropdown-title">Edit</span>
-							<ul class="xp-window-dropdown-menu">
-								<li><a href="#">Undo</a></li>
-								<li><a href="#">Redo</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="xp-ie-controls">
-						<div class="xp-ie-btn">
-							<img src="images/back.png" alt="Back" />
-							<span>Back</span>
-						</div>
-						<div class="xp-ie-btn">
-							<img src="images/forward.png" alt="Forward" />
-							<span>Forward</span>
-						</div>
-						<div class="xp-ie-btn">
-							<img src="images/ierefresh.png" alt="Refresh" />
-							<span>Refresh</span>
-						</div>
-						<div class="xp-ie-btn">
-							<img src="images/iehome.png" alt="Home" />
-							<span>Home</span>
-						</div>
-					</div>
-					<div class="xp-ie-address-bar">
-						<span>Address</span>
-						<div class="xp-ie-address-wrapper">
-							<img
-								src="images/internet-explorer.ico"
-								alt="Address"
-								class="xp-ie-address-icon"
-							/>
-							<input
-                id="ie-address"
-								type="text"
-								value="https://lacroixsoyboi.nekoweb.org/"
-								class="xp-ie-address-input"
-							/>
-						</div>
-						<button id="ie-address-go" class="xp-ie-go-button">Go</button>
-					</div>
-					<div class="xp-window-body">
-						<div class="content">
-							<div id="ie-left-side-bar">
-								<div class="sidebox">
-									<h3>site navigation</h3>
-									<ul>
-										<li><span class="nav-link" id="home">home</span></li>
-										<li><span class="nav-link" id="projects">projects</span></li>
-									</ul>
-								</div>
-								<div class="sidebox time-box">
-									<h3>Current Time</h3>
-									<p id="current-time">Loading...</p>
-									<p id="current-date">Loading...</p>
-								</div>
-							</div>
-
-							<div class="ie-main">
-								<div id="home-content">
-									<h1>it's my very cool website</h1>
-									<p>hey what's up i found a thing online about the indie web and thought i'd take a stab at making a website on it! never got to experience the magic of myspace/geocities so figure this is the next best thing! also social media kinda sucks and i don't actually use it for anything fun</p>
-									<br />
-									<p>not exactly sure how much i'm going to mess with this but the fact that it's out here and there's some evidence on the interent that I exist is kinda cool</p>
-									<br />
-									<p>i'll probably add some little easter eggs to mess around with so try clicking around if you want! something might happen or maybe i won't have done anything and nothing will happen. only one way to find out</p>
-								</div>
-								<div id="projects-content" style="display: none;">
-									<h1>stuff i did or am trying to do</h1>
-									<p>old tv alarm clock</p>
-									<p>currently working on finagling a raspberry pi to use an old tv as a display as a basic alarm clock. Eventually the goal is to have the tv auto turn on and then just do normal alarm clock stuff. Also want to add the ability for the clock to use rss feeds to play a podcast or something.</p>
-								</div>
-								<div id="lorem-ipsum-content" style="display: none;">
-									<h1>Lorem Ipsum</h1>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-									<br />
-									<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-									<br />
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-									<br />
-									<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-									<br />
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-									<br />
-									<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-									<br />
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-									<br />
-									<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-									<br />
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-									<br />
-									<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-									<br />
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-									<br />
-									<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-									<br />
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-									<br />
-									<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-									<br />
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-									<br />
-									<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-								</div>
-							</div>
-
-							<div id="ie-right-side-bar">
-								<div class="sidebox">
-									<h3>links</h3>
-									<ul>
-										<li><a href="https://letterboxd.com/nbranch/" target="_blank">letterboxd</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+			<div class="desktop-shortcut">
+				<img src="images/Folder Open.ico" alt="File Icon" class="desktop-icon" id="my-computer-icon"
+					onclick="showStuffWindow()" />
+				<p>stuff</p>
 			</div>
-			<!-- /.xp-windows-wrapper -->
-
-			<!-- bottom taskbar -->
-			<div class="xp-taskbar">
-				<div class="start-button">
-					<img src="images/windows-logo.png" alt="Start" />
-					<span>start</span>
-				</div>
-				<div class="window-taskbar-item" id="home-taskbar-item">
-					<img src="images/My Computer.ico" alt="My Computer" />
-					<span class="tray-text">My Computer</span>
-				</div>
-				<!-- you can drop in tray icons here later -->
+			<div class="desktop-shortcut">
+				<img src="images/internet-explorer.ico" alt="My Computer Icon" class="desktop-icon"
+					id="my-computer-icon" onclick="showCoolSite()" />
+				<p>fun site</p>
 			</div>
 		</div>
-		<script>
-			$(document).ready(function() {
-			  // Initialize window dragging functionality using jQuery
-			  $('.xp-window').each(function() {
-			    const $win = $(this);
-			    const $header = $win.find('.xp-window-header');
-			    let offsetX, offsetY;
+		<!-- two‐window wrapper -->
+		<div class="xp-windows-wrapper">
+			<!-- main “My Computer” window -->
+			<div class="xp-window file-explorer-window" id="stuff-window" hidden>
+				<div class="xp-window-header">
+					<span class="xp-window-title">stuff</span>
+					<div class="xp-window-buttons">
+						<button class="xp-btn xp-btn-active" onclick="minimizeWindow('stuff-window')">–</button>
+						<button class="xp-btn xp-btn-disabled" id="maximize-btn">☐</button>
+						<button class="xp-btn xp-btn-close" onclick="hideCoolSite()">X</button>
+					</div>
+				</div>
+				<div class="xp-window-body">
+					<!-- File Explorer content goes here -->
+				</div>
+			</div>
+			<div class="xp-window main-window">
+				<div class="xp-window-header">
+					<span class="xp-window-title">
+						<img src="images/internet-explorer.ico" style="height: 12px; margin-right: 5px;" />
+						cool site
+					</span>
+					<div class="xp-window-buttons">
+						<button class="xp-btn xp-btn-active" onclick="minimizeWindow()">–</button>
+						<button class="xp-btn xp-btn-active" id="maximize-btn">☐</button>
+						<button class="xp-btn xp-btn-close" onclick="hideCoolSite()">X</button>
+					</div>
+				</div>
+				<div class="xp-window-dropdowns">
+					<div class="xp-window-dropdown">
+						<span class="xp-window-dropdown-title">File</span>
+						<ul class="xp-window-dropdown-menu">
+							<li><a href="#">New</a></li>
+							<li><a href="#">Open</a></li>
+							<li><a href="#">Save</a></li>
+							<li><a href="#">Exit</a></li>
+						</ul>
+					</div>
+					<div class="xp-window-dropdown">
+						<span class="xp-window-dropdown-title">Edit</span>
+						<ul class="xp-window-dropdown-menu">
+							<li><a href="#">Undo</a></li>
+							<li><a href="#">Redo</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="xp-ie-controls">
+					<div class="xp-ie-btn">
+						<img src="images/Back.png" alt="Back" />
+						<span>Back</span>
+					</div>
+					<div class="xp-ie-btn">
+						<img src="images/Forward.png" alt="Forward" />
+						<span>Forward</span>
+					</div>
+					<div class="xp-ie-btn">
+						<img src="images/IERefresh.png" alt="Refresh" />
+						<span>Refresh</span>
+					</div>
+					<div class="xp-ie-btn">
+						<img src="images/IEHome.png" alt="Home" />
+						<span>Home</span>
+					</div>
+				</div>
+				<div class="xp-ie-address-bar">
+					<span>Address</span>
+					<div class="xp-ie-address-wrapper">
+						<img src="images/internet-explorer.ico" alt="Address" class="xp-ie-address-icon" />
+						<input id="ie-address" type="text" value="https://lacroixsoyboi.nekoweb.org/"
+							class="xp-ie-address-input" />
+					</div>
+					<button id="ie-address-go" class="xp-ie-go-button">Go</button>
+				</div>
+				<div class="xp-window-body">
+					<div class="content">
+						<div id="ie-left-side-bar">
+							<div class="sidebox">
+								<h3>site navigation</h3>
+								<ul>
+									<li><span class="nav-link" id="home">home</span></li>
+									<li><span class="nav-link" id="projects">projects</span></li>
+									<li><span class="nav-link" id="cats">my cats</span></li>
+								</ul>
+							</div>
+							<div class="sidebox time-box">
+								<h3>Current Time</h3>
+								<p id="current-time">Loading...</p>
+								<p id="current-date">Loading...</p>
+							</div>
+						</div>
 
-			    $header.on('mousedown', function(e) {
-			      // Use position() instead of offset() for relative positioning
-			      const pos = $win.position();
-			      offsetX = e.clientX - pos.left;
-			      offsetY = e.clientY - pos.top;
+						<div class="ie-main">
+							<div id="home-content" class="ie-main-box">
+								<h1>it's my very cool website</h1>
+								<p>hey what's up i found a thing online about the indie web and thought i'd take a stab
+									at making a website on it! never got to experience the magic of myspace/geocities so
+									figure this is the next best thing! also social media kinda sucks and i don't
+									actually use it for anything fun</p>
+								<br />
+								<p>not exactly sure how much i'm going to mess with this but the fact that it's out here
+									and there's some evidence on the interent that I exist is kinda cool</p>
+								<br />
+								<p>i'll probably add some little easter eggs to mess around with so try clicking around
+									if you want! something might happen or maybe i won't have done anything and nothing
+									will happen. only one way to find out</p>
+							</div>
 
-			      function onMouseMove(e) {
-			        $win.css({
-			          left: (e.clientX - offsetX) + 'px',
-			          top: (e.clientY - offsetY) + 'px'
-			        });
-			      }
+							<div id="projects-content" class="ie-main-box" style="display: none;">
+								<h1>stuff i did or am trying to do</h1>
+								<p>old tv alarm clock</p>
+								<p>currently working on finagling a raspberry pi to use an old tv as a display as a
+									basic alarm clock. Eventually the goal is to have the tv auto turn on and then just
+									do normal alarm clock stuff. Also want to add the ability for the clock to use rss
+									feeds to play a podcast or something.</p>
+							</div>
+							<div id="cats-content" class="ie-main-box" style="display: none;">
+								<h1>i have 2 cats</h1>
+								<p>i'll put pics of them up soon but their names are mjow and eclipse</p>
+							</div>
+							<div id="lorem-ipsum-content" class="ie-main-box" style="display: none;">
+								<h1>Lorem Ipsum</h1>
+								<button class="xp-ie-go-button" onclick="doubleLoremIpsum()">Gibber</button>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+									incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+									exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+								<br />
+								<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+									fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+									qui officia deserunt mollit anim id est laborum.</p>
+							</div>
+						</div>
 
-			      // listen for movement and stop on mouseup
-			      $(document).on('mousemove', onMouseMove);
-			      $(document).one('mouseup', function() {
-			        $(document).off('mousemove', onMouseMove);
-			      });
-			    });
-			  });
+						<div id="ie-right-side-bar">
+							<div class="sidebox">
+								<h3>links</h3>
+								<ul>
+									<li><a href="https://letterboxd.com/nbranch/" target="_blank">letterboxd</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.xp-windows-wrapper -->
 
-			  // Update onclick handlers to use jQuery event handlers instead
-			  $('#home-taskbar-item').on('click', showCoolSite);
-			  $('#nav-taskbar-item').on('click', showNavWindow);
-			  $('#maximize-btn').on('click', maximizeIEWindow);
+		<!-- bottom taskbar -->
+		<div class="xp-taskbar">
+			<div class="start-button">
+				<img src="images/windows-logo.png" alt="Start" />
+				<span>start</span>
+			</div>
+			<div class="window-taskbar-item" id="home-taskbar-item" hidden>
+				<img src="images/internet-explorer.ico" alt="cool site" />
+				<span class="tray-text">very cool website</span>
+			</div>
+			<div class="window-taskbar-item" id="stuff-taskbar-item" hidden>
+				<img src="images/Folder Open.ico" alt="stuff folder" />
+				<span class="tray-text">stuff</span>
+			</div>
+			<!-- you can drop in tray icons here later -->
+		</div>
+	</div>
+	<script>
+		$(document).ready(function () {
+			// Initialize window dragging functionality using jQuery
+			$('.xp-window').each(function () {
+				const $win = $(this);
+				const $header = $win.find('.xp-window-header');
+				let offsetX, offsetY;
 
-			  $("#home").on('click', function() {
-			    $('#home-content').show();
-			    $('#projects-content').hide();
-			    $('#lorem-ipsum-content').hide();
-          setAddress();
-			  });
+				$header.on('mousedown', function (e) {
+					// Use position() instead of offset() for relative positioning
+					const pos = $win.position();
+					offsetX = e.clientX - pos.left;
+					offsetY = e.clientY - pos.top;
 
-			  $("#projects").on('click', function() {
-			    $('#home-content').hide();
-			    $('#lorem-ipsum-content').hide();
-			    $('#projects-content').show();
-          setAddress('projects');
-			  });
-			  
-			  $("#ie-address-go").on('click', checkAddress);
+					function onMouseMove(e) {
+						$win.css({
+							left: (e.clientX - offsetX) + 'px',
+							top: (e.clientY - offsetY) + 'px'
+						});
+					}
 
-			  // Update time every second
-			  updateTime();
-			  setInterval(updateTime, 1000);
+					// listen for movement and stop on mouseup
+					$(document).on('mousemove', onMouseMove);
+					$(document).one('mouseup', function () {
+						$(document).off('mousemove', onMouseMove);
+					});
+				});
 			});
 
-			function updateTime() {
-			  const now = new Date();
-			  const timeString = now.toLocaleTimeString();
-			  const dateString = now.toLocaleDateString();
+			// Update onclick handlers to use jQuery event handlers instead
+			$('#home-taskbar-item').on('click', showCoolSite);
+			$('#nav-taskbar-item').on('click', showNavWindow);
+			$('#maximize-btn').on('click', maximizeIEWindow);
 
-			  $('#current-time').text(timeString);
-			  $('#current-date').text(dateString);
+			// Navigation link handlers
+			$("#home").on('click', function () {
+				showContent('home');
+			});
+
+			$("#projects").on('click', function () {
+				showContent('projects', 'projects');
+			});
+
+			$('#cats').on('click', function () {
+				showContent('cats', 'cats');
+			});
+
+			$("#ie-address-go").on('click', checkAddress);
+
+			// Update time every second
+			updateTime();
+			setInterval(updateTime, 1000);
+		});
+
+		function updateTime() {
+			const now = new Date();
+			const timeString = now.toLocaleTimeString();
+			const dateString = now.toLocaleDateString();
+
+			$('#current-time').text(timeString);
+			$('#current-date').text(dateString);
+		}
+
+		function setAddress(page) {
+			if (!page) {
+				page = '';
 			}
 
-      function setAddress (page) {
-        if (!page) {
-          page = '';
-        }
+			$('#ie-address').val('https://lacroixsoyboi.nekoweb.org/' + page);
+		}
+		function checkAddress() {
+			var addressValue = $('#ie-address').val();
 
-        $('#ie-address').val('https://lacroixsoyboi.nekoweb.org/' + page);
-      }
+			if (addressValue == 'https://lacroixsoyboi.nekoweb.org/loremipsum') {
+				showContent('lorem-ipsum', 'loremipsum');
+			}
+		}
 
-			hideNavWindow = () => {
-			  $('.nav-window').hide();
-			  $("#nav-taskbar-item").addClass("minimized");
-			};
+		function doubleLoremIpsum() {
+			$('#lorem-ipsum-content').append('<br/><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><br/><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>');
+		}
 
-			showNavWindow = () => {
-			  $('.nav-window').show();
-			  $("#nav-taskbar-item").removeClass("minimized");
-			};
-
-			hideCoolSite = () => {
-			  $('.main-window').hide();
-			  $("#home-taskbar-item").addClass("minimized");
-			};
-
-			showCoolSite = () => {
-			  $('.main-window').show();
-			  $("#home-taskbar-item").removeClass("minimized");
-			};
-			maximizeIEWindow = () => {
-			  const $mainWindow = $('.main-window');
-			  const $desktop = $('.desktop');
-
-			  if ($mainWindow.hasClass('maximized')) {
-			    // Restore to normal size
-			    $desktop.show();
-			    $mainWindow.removeClass('maximized').css({
-			      width: 'calc(100% - 400px)',
-			      height: 'auto',
-			      left: '320px',
-			      top: '50px',
-			      right: 'auto',
-			      bottom: 'auto'
-			    });
-			    $('#maximize-btn').attr('alt', '☐');
-			  } else {
-			    // Maximize to full screen (except taskbar)
-			    $desktop.hide();
-			    $mainWindow.addClass('maximized').css({
-			      width: '100%',
-			      height: 'calc(100vh - 30px)', // Full height minus taskbar height
-			      left: '0',
-			      top: '0',
-			      right: '0',
-			      bottom: '30px' // Leave space for taskbar
-			    });
-			    $('#maximize-btn').attr('alt', '❏');
-			  }
-			};
+		function minimizeWindow(windowId) {
 			
-			checkAddress = () => {
-				var addressValue = $('#ie-address').val();
-				
-				if (addressValue == 'https://lacroixsoyboi.nekoweb.org/loremipsum') {
-					$('#lorem-ipsum-content').show();
-				    $('#home-content').hide();
-				    $('#projects-content').hide();
-				}
-			};
+		}
 
-			
-		</script>
-	</body>
+		function closeWindow() {
+
+		}
+
+		hideNavWindow = () => {
+			$('.nav-window').hide();
+			$("#nav-taskbar-item").addClass("minimized");
+		};
+
+		showNavWindow = () => {
+			$('.nav-window').show();
+			$("#nav-taskbar-item").removeClass("minimized");
+		};
+
+		hideCoolSite = () => {
+			$('.main-window').hide();
+			$("#home-taskbar-item").addClass("minimized");
+		};
+
+		showCoolSite = () => {
+			$('.main-window').show();
+			$("#home-taskbar-item").removeClass("minimized");
+		};
+
+		showStuffWindow = () => {
+			$('.file-explorer-window').show();
+			$('#stuff-taskbar-item').removeAttr('hidden');
+			$('#stuff-taskbar-item').removeClass('minimized');
+		};
+
+		closeStuffWindow = () => {
+			$('.file-explorer-window').hide();
+			$('#stuff-taskbar-item').attr('hidden', true);
+		};
+
+		hideStuffWindow = () => {
+			$('.file-explorer-window').hide();
+			$('#stuff-taskbar-item').addClass('minimized');
+		};
+
+		maximizeIEWindow = () => {
+			const $mainWindow = $('.main-window');
+			const $desktop = $('.desktop');
+
+			if ($mainWindow.hasClass('maximized')) {
+				// Restore to normal size
+				$desktop.show();
+				$mainWindow.removeClass('maximized').css({
+					width: 'calc(100% - 400px)',
+					height: 'auto',
+					left: '320px',
+					top: '50px',
+					right: 'auto',
+					bottom: 'auto'
+				});
+				$('#maximize-btn').attr('alt', '☐');
+			} else {
+				// Maximize to full screen (except taskbar)
+				$desktop.hide();
+				$mainWindow.addClass('maximized').css({
+					width: '100%',
+					height: 'calc(100vh - 30px)', // Full height minus taskbar height
+					left: '0',
+					top: '0',
+					right: '0',
+					bottom: '30px' // Leave space for taskbar
+				});
+				$('#maximize-btn').attr('alt', '❏');
+			}
+		};
+	</script>
+</body>
+
 </html>
