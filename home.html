@@ -3,6 +3,7 @@
 
 <head>
 	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>LaCroixSoyBoi</title>
 	<link rel="stylesheet" href="site.css" />
 	<link rel="icon" href="images/My Computer.ico" type="image/x-icon" />
@@ -24,9 +25,8 @@
 				<img src="images/internet-explorer.ico" alt="My Computer Icon" class="desktop-icon" />
 				<p>fun site</p>
 			</div>
-			<div class="desktop-shortcut" id="desktop-fun-site">
-				<img src="images/internet-explorer.ico" alt="My Computer Icon" class="desktop-icon" />
-				<p>fun site</p>
+			<div onclick="window.location.href='https://wizard.lacroixboi.soy'" class="desktop-shortcut hidden-wizard" id="wizard-shortcut">
+				<img src="images/Merlin.webp" alt="wizard" class="desktop-icon" />
 			</div>
 		</div>
 		<!-- two‐window wrapper -->
@@ -154,7 +154,7 @@
 							</div>
 							<div id="aggregator-content" class="ie-main-box" style="display: none;">
 								<h1>Social Media Aggregator</h1>
-								<p>Latest videos from my favorite YouTube channels</p>
+								<p>this is my version of subscriptions</p>
 								<div id="youtube-videos-container">
 									<div class="loading">Click to load latest videos...</div>
 								</div>
@@ -177,7 +177,6 @@
 								<h3>links</h3>
 								<ul>
 									<li><a href="https://letterboxd.com/nbranch/" target="_blank">letterboxd</a></li>
-									<li><a href="https://wizard.lacroixboi.soy" target="_blank">wizard</a></li>
 								</ul>
 							</div>
 						</div>
@@ -339,7 +338,7 @@
 				$desktop.show();
 				$mainWindow.removeClass('maximized').css(savedWindowState);
 				$maxBtn.text('☐');
-				$ieMain.css({ 'max-height': '500px' });
+				$ieMain.css({ 'max-height': '100%' });
 				savedWindowState = null;
 			} else {
 				// Save current position before maximizing
@@ -369,7 +368,12 @@
 		const YOUTUBE_API_KEY = 'AIzaSyA8m3cK97P4rHHGlgUn-2pfgC5R-iV7ifc'; // Replace with your actual API key
 		const YOUTUBE_CHANNELS = [
 			// Replace these with actual channel IDs you want to aggregate
-			'UCYF1kiTFCcYPqGTqXKt3JJg' 
+			'UCSgTfFfu6aBjl7S5i0Tx1zg',
+			'UC3cpN6gcJQqcCM6mxRUo_dA',
+			'UCJ2ZDzMRgSrxmwphstrm8Ww',
+			'UC8Gwis8sr3O-IVA7BGDxh9g',
+			'UCeeFfhMcJa1kjtfZAGskOCA',
+			'UCYF1kiTFCcYPqGTqXKt3JJg'
 		];
 
 		async function fetchLatestVideos() {
@@ -421,7 +425,7 @@
 						<div class="video-embed">
 							<iframe 
 								width="100%" 
-								height="200" 
+								height="300" 
 								src="https://www.youtube.com/embed/${video.id.videoId}?modestbranding=1&rel=0" 
 								frameborder="0" 
 								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
