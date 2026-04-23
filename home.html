@@ -25,8 +25,13 @@
 				<img src="images/internet-explorer.ico" alt="My Computer Icon" class="desktop-icon" />
 				<p>fun site</p>
 			</div>
+		</div>
+		<div class="hidden-shortcuts-wrapper">
 			<div onclick="window.location.href='https://wizard.lacroixboi.soy'" class="desktop-shortcut hidden-wizard" id="wizard-shortcut">
 				<img src="images/Merlin.webp" alt="wizard" class="desktop-icon" />
+			</div>
+			<div onclick="window.location.href='https://files.lacroixboi.soy'" class="desktop-shortcut hidden-door" id="trapdoor-shortcut">
+				<img src="images/trapdoor.png" alt="trapdoor" class="desktop-icon" />
 			</div>
 		</div>
 		<!-- two‐window wrapper -->
@@ -97,7 +102,7 @@
 					<span>Address</span>
 					<div class="xp-ie-address-wrapper">
 						<img src="images/internet-explorer.ico" alt="Address" class="xp-ie-address-icon" />
-						<input id="ie-address" type="text" value="https://lacroixsoyboi.nekoweb.org/"
+						<input id="ie-address" type="text" value="https://lacroixsoyboy.org/"
 							class="xp-ie-address-input" />
 					</div>
 					<button id="ie-address-go" class="xp-ie-go-button">Go</button>
@@ -280,12 +285,12 @@
 		}
 
 		function setAddress(page) {
-			$('#ie-address').val('https://lacroixsoyboi.nekoweb.org/' + (page || ''));
+			$('#ie-address').val('https://lacroixsoyboi.org/' + (page || ''));
 		}
 
 		function checkAddress() {
 			const addressValue = $('#ie-address').val();
-			if (addressValue === 'https://lacroixsoyboi.nekoweb.org/loremipsum') {
+			if (addressValue === 'https://lacroixsoyboi.org/loremipsum') {
 				showContent('lorem-ipsum', 'loremipsum');
 			}
 		}

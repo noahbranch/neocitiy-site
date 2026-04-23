@@ -166,10 +166,25 @@ body {
   cursor: pointer;
 }
 
-.hidden-wizard {
+.hidden-shortcuts-wrapper {
   position: fixed;
-  bottom: 40px;
+  bottom: 48px;
+  right: 10px;
   z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.hidden-wizard,
+.hidden-door {
+  position: static;
+}
+
+.hidden-shortcuts-wrapper img {
+  height: 36px;
+  display: block;
 }
 
 
@@ -916,5 +931,10 @@ body {
   #ie-right-side-bar {
     width: 100%;
     padding: 8px 0 0 0;
+  }
+
+  /* Keep hidden shortcuts visible at bottom-right, no taskbar offset needed */
+  .hidden-shortcuts-wrapper {
+    bottom: 10px;
   }
 }
