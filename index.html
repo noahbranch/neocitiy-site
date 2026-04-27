@@ -5,6 +5,7 @@
   <title>La Croix Soy Boi</title>
   <link rel="stylesheet" href="site.css">
   <link rel="icon" href="images/High-Res_XP_Icons/My Computer.ico" type="image/x-icon">
+	<script src="jquery-3.7.1.min.js"></script>
 </head>
 <body>
   <div class="xp-login-container">
@@ -15,6 +16,10 @@
 
       <!-- central panel -->
   <div class="xp-login-panel">
+    <div class="welcome-section">
+      <h1><i>welcome</i></h1>
+      <audio id="welcome-audio" src="audio/startup.wav" type="audio/wav"></audio>
+    </div>
     <!-- left side: logo + prompt -->
     <div class="logo-section">
       <div class="logo">
@@ -38,7 +43,7 @@
     <div class="xp-footer">
       <div class="shutdown">
         <img src="images/shutdown-icon.png" alt="" class="shutdown-icon">
-        <span>Turn off computer</span>
+        <span>Turn off computer (sound: off)</span>
       </div>
       <div class="hint">
         After you log on, you can add or change accounts.<br>
@@ -48,14 +53,32 @@
   </div>
 
   <script>
-    document.getElementById('login-button').addEventListener('click', function() {
-      window.location.href = 'home.html';
+    let soundOn = false;
+
+    $('#login-button').on('click', function() {
+      $(".logo-section").fadeOut(500);
+      $(".login-section").fadeOut(500);
+
+      setTimeout(() => {
+        if (soundOn) {
+          $("#welcome-audio")[0].volume = 0.15;
+          $("#welcome-audio")[0].play();
+        }
+        $(".welcome-section").fadeIn(2500, () => {
+          window.location.href = 'home.html';
+        });
+      }, 500);
     });
-    // Optional: allow pressing Enter when focused
-    document.querySelector('.user-card').addEventListener('keydown', function(e) {
+
+    $('.user-card').on('keydown', function(e) {
       if (e.key === 'Enter') {
         window.location.href = 'home.html';
       }
+    });
+
+    $('.shutdown').on('click', function() {
+      soundOn = !soundOn;
+      $(this).find('span').text(soundOn ? 'Turn off computer (sound: on)' : 'Turn off computer (sound: off)');
     });
   </script>
 </body>

@@ -45,6 +45,14 @@ body {
   height: auto; /* let content size itself */
 }
 
+.welcome-section {
+  display: none;
+  flex: 1;
+  text-align: center;
+  text-shadow: 2px 2px #0055e3;
+  font-size: 1.75em;
+}
+
 /* left half */
 .logo-section {
   flex: 1;
