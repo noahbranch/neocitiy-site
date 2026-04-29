@@ -432,13 +432,249 @@ body {
   background: #6f9c3b;
 }
 
+/* Start Menu */
+.xp-start-menu {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  width: 380px;
+  background: #fff;
+  border: 2px solid #0055e3;
+  border-radius: 6px 6px 0 0;
+  box-shadow: 4px -4px 12px rgba(0,0,0,0.5);
+  z-index: 9999;
+  font-size: 12px;
+  overflow: hidden;
+}
+
+.xp-start-menu-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(to bottom, #1f5bc4, #0055e3);
+  padding: 8px 10px;
+  color: #fff;
+}
+
+.xp-start-menu-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  border: 2px solid #fff;
+  object-fit: cover;
+}
+
+.xp-start-menu-username {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.xp-start-menu-body {
+  display: flex;
+  min-height: 280px;
+}
+
+.xp-start-menu-left {
+  flex: 1;
+  background: #fff;
+  padding: 4px 0;
+  border-right: 1px solid #c5c5c5;
+  display: flex;
+  flex-direction: column;
+}
+
+.xp-start-menu-right {
+  width: 160px;
+  background: #d6e4f7;
+  padding: 4px 0;
+}
+
+.xp-start-menu-pinned,
+.xp-start-menu-recent,
+.xp-start-menu-right-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.xp-start-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 10px;
+  cursor: pointer;
+  color: #000;
+  white-space: nowrap;
+}
+
+.xp-start-menu-item:hover {
+  background: #316ac5;
+  color: #fff;
+}
+
+.xp-start-menu-item img {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.xp-start-menu-right-list .xp-start-menu-item img {
+  width: 20px;
+  height: 20px;
+}
+
+.xp-start-menu-item-name {
+  font-weight: bold;
+  display: block;
+  line-height: 1.2;
+}
+
+.xp-start-menu-item-sub {
+  font-weight: normal;
+  font-size: 10px;
+  color: #555;
+  display: block;
+}
+
+.xp-start-menu-item:hover .xp-start-menu-item-sub {
+  color: #cce;
+}
+
+.xp-start-menu-divider {
+  border: none;
+  border-top: 1px solid #c5c5c5;
+  margin: 4px 6px;
+}
+
+.xp-start-menu-right .xp-start-menu-divider {
+  border-color: #a0b8d8;
+}
+
+.xp-start-menu-all-programs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: auto;
+  border-top: 1px solid #c5c5c5;
+  color: #000;
+}
+
+.xp-start-menu-all-programs img {
+  width: 20px;
+  height: 20px;
+}
+
+.xp-start-menu-all-programs:hover {
+  background: #316ac5;
+  color: #fff;
+}
+
+.xp-start-menu-arrow {
+  margin-left: auto;
+  font-size: 10px;
+}
+
+.xp-start-menu-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  background: linear-gradient(to bottom, #1f5bc4, #0055e3);
+  padding: 6px 8px;
+}
+
+.xp-start-menu-footer-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: linear-gradient(to bottom, #4a7fd4, #2a5bbf);
+  border: 1px solid #1a3f8f;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 11px;
+  padding: 3px 8px;
+  cursor: pointer;
+}
+
+.xp-start-menu-footer-btn img {
+  width: 16px;
+  height: 16px;
+}
+
+.xp-start-menu-footer-btn:hover {
+  background: linear-gradient(to bottom, #5a8fe4, #3a6bcf);
+}
+
+/* Logoff overlay */
+#logoff-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: linear-gradient(to bottom, #0055e3 0%, #5b8de0 50%, #0055e3 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.logoff-logo {
+  width: 220px;
+}
+
+.logoff-text {
+  color: #fff;
+  font-size: 18px;
+  font-family: Tahoma, Arial, sans-serif;
+  letter-spacing: 0.05em;
+}
+
+/* System tray */
+.xp-system-tray {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+  padding: 0 6px;
+  height: 100%;
+  background: linear-gradient(to bottom, #1248a8, #0a3a96);
+  border-left: 1px solid #1a53b0;
+}
+
+.xp-tray-icon {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.xp-tray-icon:hover {
+  opacity: 1;
+}
+
+#tray-volume-icon {
+  cursor: pointer;
+}
+
+.xp-tray-clock {
+  color: #fff;
+  font-size: 11px;
+  font-family: Tahoma, Arial, sans-serif;
+  padding: 0 4px 0 6px;
+  white-space: nowrap;
+  border-left: 1px solid rgba(255,255,255,0.2);
+  margin-left: 2px;
+}
+
 .window-taskbar-item {
   display: flex;
   align-items: center;
   padding: 0 8px;
   color: #fff;
   cursor: pointer;
-  background-color: #0055e3;
+  background-color: #1a53b0;
   border-radius: 4px;
   margin:4px 8px;
   font-size: 12px;
@@ -457,7 +693,7 @@ body {
 
 /* Minimized taskbar item styling */
 .window-taskbar-item.minimized {
-  background-color: #1a53b0 !important;
+  background-color: #0055e3 !important;
 }
 
 .window-taskbar-item.minimized:hover {

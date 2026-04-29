@@ -50,7 +50,7 @@
 					<!-- File Explorer content goes here -->
 				</div>
 			</div>
-			<div class="xp-window main-window">
+			<div class="xp-window main-window" hidden>
 				<div class="xp-window-header">
 					<span class="xp-window-title">
 						<img src="images/internet-explorer.ico" style="height: 12px; margin-right: 5px;" />
@@ -116,7 +116,7 @@
 									<li><span class="nav-link" id="home">home</span></li>
 									<li><span class="nav-link" id="projects">projects</span></li>
 									<li><span class="nav-link" id="cats">my cats</span></li>
-									<li><span class="nav-link" id="aggregator">aggregator</span></li>
+									<li><span class="nav-link" id="aggregator">youtube channels</span></li>
 								</ul>
 							</div>
 							<div class="sidebox time-box">
@@ -144,11 +144,18 @@
 
 							<div id="projects-content" class="ie-main-box" style="display: none;">
 								<h1>stuff i did or am trying to do</h1>
-								<p>old tv alarm clock</p>
-								<p>currently working on finagling a raspberry pi to use an old tv as a display as a
-									basic alarm clock. Eventually the goal is to have the tv auto turn on and then just
-									do normal alarm clock stuff. Also want to add the ability for the clock to use rss
-									feeds to play a podcast or something.</p>
+								<p>media server</p>
+								<p>set up a jellyfin server that i'm running off of a mac mini that i've converted into a NAS for my stuff. was using tailscale in order 
+									to access it remotely/share with some family but was having to do some trickery to get them all on the tailscale network. ended up using 
+									cloudflare tunnels to expose it so I can just access it normally. added google auth as well so it's not just exposed which was nice.
+								</p>
+								<br/>
+								<p>link sharing</p>
+								<p>other than hosting the media server figured out i was often sharing links to files that i was mainly uploading
+									to google drive and then sending that link. it was turning into a decent hassle so i found a service called <a href="https://github.com/stonith404/pingvin-share" target="_blank">pingvin-share</a> that 
+									lets me upload files and share links to them without using google drive. also got it running through the cloudflare tunnel
+									which makes sharing with other people a lot easier.
+								</p>
 							</div>
 							<div id="cats-content" class="ie-main-box" style="display: none;">
 								<h1>i have 2 cats</h1>
@@ -178,10 +185,13 @@
 						</div>
 
 						<div id="ie-right-side-bar">
-							<div class="sidebox">
+							<div title="mostly so i can get places i'm going anyway" class="sidebox">
 								<h3>links</h3>
 								<ul>
-									<li><a href="https://letterboxd.com/nbranch/" target="_blank">letterboxd</a></li>
+									<li><a title="specifically mine" href="https://letterboxd.com/nbranch/" target="_blank">letterboxd</a></li>
+									<li><a title="mmm 3 hour video essay" href="https://youtube.com/" target="_blank">youtube</a></li>
+									<li><a title="THE HOUR OF HATE STARTS NOW" href="https://twitter.com/" target="_blank">evil portal of hatred</a></li>
+									<li><a title="advertisement emails" href="https://gmail.com/" target="_blank">email zone</a></li>
 								</ul>
 							</div>
 						</div>
@@ -191,21 +201,137 @@
 		</div>
 		<!-- /.xp-windows-wrapper -->
 
+		<!-- Logoff overlay -->
+		<div id="logoff-overlay" style="display:none">
+			<audio id="logoff-audio" src="audio/logoff.wav" preload="auto"></audio>
+			<img src="images/windows-xp-logo.png" alt="Windows XP" class="logoff-logo" />
+			<p class="logoff-text">logging off...</p>
+		</div>
+
+		<!-- Start Menu -->
+		<div class="xp-start-menu" id="xp-start-menu" style="display:none">
+			<div class="xp-start-menu-header">
+				<img src="images/user-icon.jpg" alt="user" class="xp-start-menu-avatar" />
+				<span class="xp-start-menu-username">lacroixsoyboi</span>
+			</div>
+			<div class="xp-start-menu-body">
+				<div class="xp-start-menu-left">
+					<ul class="xp-start-menu-pinned">
+						<li class="xp-start-menu-item">
+							<img src="images/Windows XP Icons/Internet Explorer 6.png" alt="" />
+							<div>
+								<span class="xp-start-menu-item-name">Internet Explorer</span>
+								<span class="xp-start-menu-item-sub">very cool website</span>
+							</div>
+						</li>
+						<li class="xp-start-menu-item">
+							<img src="images/Windows XP Icons/Outlook Express.png" alt="" />
+							<div>
+								<span class="xp-start-menu-item-name">Outlook Express</span>
+							</div>
+						</li>
+					</ul>
+					<hr class="xp-start-menu-divider" />
+					<ul class="xp-start-menu-recent">
+						<li class="xp-start-menu-item">
+							<img src="images/Windows XP Icons/Notepad.png" alt="" />
+							<span class="xp-start-menu-item-name">Notepad</span>
+						</li>
+						<li class="xp-start-menu-item">
+							<img src="images/Windows XP Icons/Paint.png" alt="" />
+							<span class="xp-start-menu-item-name">Paint</span>
+						</li>
+						<li class="xp-start-menu-item">
+							<img src="images/Windows XP Icons/Calculator.png" alt="" />
+							<span class="xp-start-menu-item-name">Calculator</span>
+						</li>
+						<li class="xp-start-menu-item">
+							<img src="images/Windows XP Icons/Command Prompt.png" alt="" />
+							<span class="xp-start-menu-item-name">Command Prompt</span>
+						</li>
+					</ul>
+					<div class="xp-start-menu-all-programs">
+						<img src="images/Windows XP Icons/Start Menu Programs.png" alt="" />
+						<span>All Programs</span>
+						<span class="xp-start-menu-arrow">&#9658;</span>
+					</div>
+				</div>
+				<div class="xp-start-menu-right">
+					<ul class="xp-start-menu-right-list">
+						<li class="xp-start-menu-item">
+							<img src="images/Windows XP Icons/My Documents.png" alt="" />
+							<span class="xp-start-menu-item-name">My Documents</span>
+						</li>
+						<li class="xp-start-menu-item">
+							<img src="images/Windows XP Icons/My Pictures.png" alt="" />
+							<span class="xp-start-menu-item-name">My Pictures</span>
+						</li>
+						<li class="xp-start-menu-item">
+							<img src="images/Windows XP Icons/My Music.png" alt="" />
+							<span class="xp-start-menu-item-name">My Music</span>
+						</li>
+						<li class="xp-start-menu-item">
+							<img src="images/Windows XP Icons/My Computer.png" alt="" />
+							<span class="xp-start-menu-item-name">My Computer</span>
+						</li>
+						<hr class="xp-start-menu-divider" />
+						<li class="xp-start-menu-item">
+							<img src="images/Windows XP Icons/Control Panel.png" alt="" />
+							<span class="xp-start-menu-item-name">Control Panel</span>
+						</li>
+						<li class="xp-start-menu-item">
+							<img src="images/Windows XP Icons/Printers and Faxes.png" alt="" />
+							<span class="xp-start-menu-item-name">Printers and Faxes</span>
+						</li>
+						<hr class="xp-start-menu-divider" />
+						<li class="xp-start-menu-item">
+							<img src="images/Windows XP Icons/Help and Support.png" alt="" />
+							<span class="xp-start-menu-item-name">Help and Support</span>
+						</li>
+						<li class="xp-start-menu-item">
+							<img src="images/Windows XP Icons/Search.png" alt="" />
+							<span class="xp-start-menu-item-name">Search</span>
+						</li>
+						<li class="xp-start-menu-item">
+							<img src="images/Windows XP Icons/Run.png" alt="" />
+							<span class="xp-start-menu-item-name">Run...</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="xp-start-menu-footer">
+				<button class="xp-start-menu-footer-btn" id="start-menu-logoff-btn">
+					<img src="images/Windows XP Icons/Switch User.png" alt="" />
+					<span>Log Off</span>
+				</button>
+				<button class="xp-start-menu-footer-btn">
+					<img src="images/shutdown-icon.png" alt="" />
+					<span>Turn Off Computer</span>
+				</button>
+			</div>
+		</div>
+
 		<!-- bottom taskbar -->
 		<div class="xp-taskbar">
 			<div class="start-button">
 				<img src="images/windows-logo.png" alt="Start" />
 				<span>start</span>
 			</div>
-			<div class="window-taskbar-item" id="home-taskbar-item" hidden>
+			<div class="window-taskbar-item" id="home-taskbar-item" style="display:none">
 				<img src="images/internet-explorer.ico" alt="cool site" />
 				<span class="tray-text">very cool website</span>
 			</div>
-			<div class="window-taskbar-item" id="stuff-taskbar-item" hidden>
+			<div class="window-taskbar-item" id="stuff-taskbar-item" style="display:none">
 				<img src="images/Folder Open.ico" alt="stuff folder" />
 				<span class="tray-text">stuff</span>
 			</div>
-			<!-- you can drop in tray icons here later -->
+			<!-- system tray -->
+			<div class="xp-system-tray" id="xp-system-tray">
+				<img src="images/Windows XP Icons/Wireless Network Connection.png" alt="Network" class="xp-tray-icon" title="Wireless Network Connection" />
+				<img src="images/Windows XP Icons/Security Center.png" alt="Security" class="xp-tray-icon" title="Security Center" />
+				<img src="images/Windows XP Icons/Mute.png" alt="Volume" class="xp-tray-icon" id="tray-volume-icon" title="Volume (click to mute/unmute)" />
+				<div class="xp-tray-clock" id="xp-tray-clock">12:00 PM</div>
+			</div>
 		</div>
 	</div>
 	<script>
@@ -215,6 +341,10 @@
 				const $win = $(this);
 				const $header = $win.find('.xp-window-header');
 				let offsetX, offsetY;
+
+				$win.on('mousedown', function () {
+					bringToFront($win);
+				});
 
 				$header.on('mousedown', function (e) {
 					const pos = $win.position();
@@ -235,6 +365,33 @@
 				});
 			});
 
+			$('#start-menu-logoff-btn').on('click', function () {
+				$('#xp-start-menu').hide();
+				const $overlay = $('#logoff-overlay');
+				const audio = document.getElementById('logoff-audio');
+				$overlay.show();
+				const redirect = () => { window.location.href = 'index.html'; };
+				if (soundEnabled) {
+					audio.play();
+					audio.addEventListener('ended', redirect, { once: true });
+					// fallback in case audio doesn't play
+					setTimeout(redirect, 4000);
+				} else {
+					setTimeout(redirect, 1500);
+				}
+			});
+
+			// Start menu toggle
+			$('.start-button').on('click', function (e) {
+				e.stopPropagation();
+				$('#xp-start-menu').toggle();
+			});
+			$(document).on('click', function (e) {
+				if (!$(e.target).closest('#xp-start-menu').length) {
+					$('#xp-start-menu').hide();
+				}
+			});
+
 			// Desktop shortcut handlers
 			$('#desktop-stuff').on('click', showStuffWindow);
 			$('#desktop-fun-site').on('click', showCoolSite);
@@ -250,7 +407,7 @@
 			// main IE window button handlers
 			$('#ie-minimize-btn').on('click', hideCoolSite);
 			$('#ie-maximize-btn').on('click', maximizeIEWindow);
-			$('#ie-close-btn').on('click', hideCoolSite);
+			$('#ie-close-btn').on('click', closeCoolSite);
 
 			// Navigation link handlers
 			$('#home').on('click', function () {
@@ -277,6 +434,25 @@
 			updateTime();
 			setInterval(updateTime, 1000);
 		});
+
+		// Sound toggle
+		let soundEnabled = false;
+		$('#tray-volume-icon').on('click', function () {
+			soundEnabled = !soundEnabled;
+			if (soundEnabled) {
+				$(this).attr('src', 'images/Windows XP Icons/Volume.png').attr('title', 'Volume (click to mute/unmute)');
+			} else {
+				$(this).attr('src', 'images/Windows XP Icons/Mute.png').attr('title', 'Muted (click to unmute)');
+			}
+		});
+
+		// Update tray clock
+		function updateTrayClock() {
+			const now = new Date();
+			$('#xp-tray-clock').text(now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+		}
+		updateTrayClock();
+		setInterval(updateTrayClock, 10000);
 
 		function updateTime() {
 			const now = new Date();
@@ -305,6 +481,12 @@
 			setAddress(addressPage);
 		}
 
+		let zTop = 10;
+
+		const bringToFront = ($win) => {
+			$win.css('z-index', ++zTop);
+		};
+
 		const hideCoolSite = () => {
 			$('.main-window').hide();
 			$('#home-taskbar-item').addClass('minimized');
@@ -312,17 +494,24 @@
 
 		const showCoolSite = () => {
 			$('.main-window').show();
-			$('#home-taskbar-item').removeClass('minimized');
+			$('#home-taskbar-item').show().removeClass('minimized');
+			bringToFront($('.main-window'));
+		};
+
+		const closeCoolSite = () => {
+			$('.main-window').hide();
+			$('#home-taskbar-item').hide();
 		};
 
 		const showStuffWindow = () => {
 			$('.file-explorer-window').show();
-			$('#stuff-taskbar-item').removeAttr('hidden').removeClass('minimized');
+			$('#stuff-taskbar-item').show().removeClass('minimized');
+			bringToFront($('.file-explorer-window'));
 		};
 
 		const closeStuffWindow = () => {
 			$('.file-explorer-window').hide();
-			$('#stuff-taskbar-item').attr('hidden', true);
+			$('#stuff-taskbar-item').hide();
 		};
 
 		const hideStuffWindow = () => {
@@ -375,7 +564,6 @@
 			// Replace these with actual channel IDs you want to aggregate
 			'UCSgTfFfu6aBjl7S5i0Tx1zg',
 			'UC3cpN6gcJQqcCM6mxRUo_dA',
-			'UCJ2ZDzMRgSrxmwphstrm8Ww',
 			'UC8Gwis8sr3O-IVA7BGDxh9g',
 			'UCeeFfhMcJa1kjtfZAGskOCA',
 			'UCYF1kiTFCcYPqGTqXKt3JJg'
